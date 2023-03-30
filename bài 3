@@ -1,0 +1,40 @@
+Viết hàm tính số hạng thứ n của hai dãy sau:	
+"X(0) = 1
+Y(0) = 0
+X(n) = x(n – 1) + y(n – 1) (n > 0)
+Y(n) = 3 * x(n – 1) + 2 * y(n – 1) (n > 0)"	
+ 
+ #include <stdio.h>
+int Y(int n);
+int X(int n){
+    if(n == 0)
+        return 1;
+    if(n<0)
+        return 0;
+        return X(n-1) + Y(n-1);
+}
+
+int Y(int n){
+    if(n == 0)
+        return 0;
+    if(n<0)
+         return 0;
+        return 3*X(n-1) + 2*Y(n-1);
+}
+
+int main(){
+    int n;
+    printf("Nhap n: ");
+    scanf("%d", &n);
+
+    int x_n = X(n);
+    printf("So hang thu %d cua day X la %d\n", n, x_n);
+
+    int y_n = Y(n);
+    printf("So hang thu %d cua day Y la %d\n", n, y_n);
+
+    int sum = x_n + y_n;
+    printf("Tong hai so hang la %d\n", sum);
+
+    return 0;
+}
