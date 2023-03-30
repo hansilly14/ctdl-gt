@@ -1,0 +1,48 @@
+Bài 1:cho mảng 1 chiều các số nguyên. Viết hàm tính tổng các số chẵn bằng phương pháp đệ quy:
+#include<stdio.h>
+int Nhapmang(int a[], int n){
+	 for(int i = 0; i <= n - 1; i++){     
+        printf("NHAP A[%d]: ",i);
+        scanf("%d",&a[i]);
+    }
+}
+int Xuatmang(int a[], int n){
+    printf("\nCAC PHAN TU CO TRONG MANG\n");
+    for(int i = 0; i <= n - 1; i++){
+        printf("A[%d] = %d \n" ,i,a[i]);
+    } 
+}
+int tongchan(int a[], int n) {
+    if (n == 0) {
+        return 0;
+    }
+    if (n == 1) {
+        if (a[0] % 2 == 0) {
+            return a[0];
+        } else {
+            return 0;
+        }
+    }
+    if (a[n-1] % 2 == 0) {
+        return a[n-1] + tongchan(a, n-1);
+    } else {
+        return tongchan(a, n-1);
+    }
+}
+#include <stdio.h>
+
+int main() {
+    int a[100];
+    int n, i, S=0;
+    
+    printf("Nhap so phan tu cua mang: ");
+    scanf("%d", &n);
+    printf("Nhap cac phan tu cua mang: ");
+    printf("Cac phan tu cua mang la: ");
+   
+    Nhapmang(a,n);
+    Xuatmang(a,n);
+    S=tongchan(a,n);
+    printf("tong cac so chan la: %d", +S);
+    return 0;
+} 
