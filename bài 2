@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<math.h>
+int factorial(int n){
+	if(n==0)
+	  return 1;
+	else
+	   return factorial(n-1)*n;
+}
+double  Tong(double x, int n){
+	if(n==1)
+	  return x;
+    if (n==0)
+    return 1;
+	return (pow(x,n) / factorial(n)) +Tong(x,n-1);
+	    
+}	    
+int main(){
+	double x , S=0.0;
+	int n;
+	printf("nhap x :");
+	scanf("%lf", &x);
+	printf("nhap n  :");
+	scanf("%d", &n);
+	S=Tong(x,n);
+	printf(" tong là:%f", +S);
+    return 0;
+
+}
