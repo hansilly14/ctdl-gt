@@ -1,0 +1,22 @@
+Tính số hạng thứ n của dãy			
+"X(0) = 1
+X(n) = n^2.x(0) + (n – 1)^2.x(1) + … + (n – i)^2.x(i) +… + 2^2.x(n – 2) + 1^2.x(n – 1)"			
+#include<stdio.h>
+#include<math.h>
+
+int tinhSoHang(int n){
+	if(n==0)
+		return 1;
+	int tong=0;
+	for(int i=0;i<n;i++){
+		tong=tong+ (pow(n-i ,2)* tinhSoHang(i));
+	}
+	return tong;
+}
+
+int main(){
+	int n;
+	printf("nhap n");
+	scanf("%d",&n);
+	printf("ket qua = %d",tinhSoHang(n));
+}
